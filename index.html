@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Atrae Más Clientes a tu Restaurante | Marketing Digital Gastronómico</title>
+    <title>SEO y SEM para Cadenas de Restaurantes | Rank n Roll</title>
 
-    <meta name="description" content="Ayudamos a restaurantes a aparecer primero en Google Maps y atraer más comensales con estrategias de SEO Local y publicidad digital. ¡Llena tus mesas! Contáctanos hoy.">
+    <meta name="description" content="Aumenta clientes y reservas en tus restaurantes con SEO Local y SEM. Más visibilidad en Google Maps y más comensales en cada sede.">
 
-    <meta name="robots" content="noindex">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="SEO y SEM para Cadenas de Restaurantes | Rank n Roll">
+    <meta property="og:description" content="Aumenta clientes y reservas en tus restaurantes con SEO Local y SEM. Más visibilidad en Google Maps y más comensales en cada sede.">
+    <meta property="og:image" content="ruta/og-imagen-restaurantes.jpg">
+    <meta property="og:type" content="website">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -63,17 +69,22 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            text-align: center;
             position: relative;
             z-index: 2;
         }
 
         .header-content {
-            max-width: 800px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .header-content h1 {
+        .header-text {
+            text-align: left;
+        }
+
+        .header-text h1 {
             font-size: 3.2rem;
             font-weight: 900;
             color: var(--white);
@@ -81,18 +92,45 @@
             line-height: 1.1;
         }
 
-        .header-content .tagline {
+        .header-text .tagline {
             font-size: 1.3rem;
             color: var(--primary-green);
             font-weight: 600;
             margin-bottom: 1.5rem;
         }
 
-        .header-content p {
+        .header-text p {
             font-size: 1.1rem;
             opacity: 0.9;
             margin-bottom: 2rem;
             line-height: 1.7;
+        }
+
+        .header-media {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px dashed var(--primary-green);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .header-media i {
+            font-size: 4rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .header-media p {
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .cta-buttons {
@@ -100,7 +138,6 @@
             gap: 1rem;
             margin: 2rem 0;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
         .btn {
@@ -145,6 +182,7 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-top: 3rem;
+            grid-column: 1 / -1;
         }
 
         .stat-item {
@@ -210,7 +248,6 @@
 
         .pain-stats-grid {
             display: grid;
-            /* AJUSTE: Forzamos una cuadrícula de 2x2 para un mejor balance visual */
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             margin-bottom: 2.5rem;
@@ -240,6 +277,26 @@
 
         .pain-cta {
             margin-top: 2rem;
+        }
+
+        /* CTA Section */
+        .cta-mid-section {
+            background: var(--primary-purple);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .cta-mid-section h3 {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .cta-mid-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
         /* Section */
@@ -345,153 +402,123 @@
             font-weight: bold;
         }
 
-        /* Cases Section */
-        .cases-section {
+        /* Case Study Section */
+        .case-study-section {
             background: var(--bg-light);
+            padding: 5rem 0;
         }
 
-        .case-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .case-card {
+        .case-study-container {
+            max-width: 1000px;
+            margin: 0 auto;
             background: var(--white);
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-light);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
         }
 
-        .case-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .case-header {
+        .case-study-header {
             background: var(--primary-purple);
             color: var(--white);
-            padding: 2rem;
+            padding: 3rem;
+            text-align: center;
             position: relative;
         }
 
-        .case-header::after {
+        .case-study-header::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            left: 2rem;
-            right: 2rem;
-            height: 16px;
+            bottom: -10px;
+            left: 3rem;
+            right: 3rem;
+            height: 20px;
             background: var(--primary-green);
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
-        .case-industry {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .case-study-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
         }
 
-        .case-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .case-study-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            font-weight: 600;
         }
 
-        .case-subtitle {
-            font-size: 1rem;
-            opacity: 0.9;
+        .case-study-content {
+            padding: 3rem;
         }
 
-        .case-content {
-            padding: 2.5rem 2rem 2rem 2rem;
+        .case-story {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            color: var(--text-dark);
         }
 
-        .case-challenge {
-            background: #f8f9fa;
+        .case-results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 16px;
+        }
+
+        .case-result-item {
+            text-align: center;
             padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
+        }
+
+        .case-result-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-purple);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-result-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .case-strategy {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
             border-left: 4px solid var(--primary-green);
         }
 
-        .case-challenge strong {
+        .case-strategy h4 {
             color: var(--primary-purple);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
-        .case-results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-            padding: 1.5rem;
-            background: var(--bg-light);
-            border-radius: 8px;
+        .case-strategy ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        .result-item {
-            text-align: center;
-        }
-
-        .result-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-purple);
-            display: block;
-        }
-
-        .result-label {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-top: 0.2rem;
-        }
-
-        .case-tags {
+        .case-strategy li {
+            padding: 0.5rem 0;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .case-tag {
-            background: var(--primary-green);
-            color: var(--primary-purple);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .case-status {
-            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(200, 237, 62, 0.1);
-            color: var(--primary-purple);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
         }
 
-        .status-active::before {
-            content: '●';
-            color: #28a745;
-        }
-        
-        .status-completed::before {
-            content: '●';
-            color: #17a2b8;
-        }
-
-        .status-development::before {
-            content: '●';
-            color: #ffc107;
+        .case-strategy li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         /* Contact Section */
@@ -555,6 +582,32 @@
             opacity: 0.9;
         }
 
+        /* Formulario Leads */
+        .formulario-leads {
+            margin-top: 1.5rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            border: 2px dashed var(--primary-green);
+            text-align: center;
+        }
+
+        .formulario-leads::before {
+            content: "📝 [shortcode-form]";
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .formulario-leads::after {
+            content: "Aquí se integra el formulario de captación de leads";
+            color: var(--primary-green);
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
         /* Footer */
         .footer {
             background: var(--dark-purple);
@@ -565,23 +618,35 @@
 
         /* Responsive */
         @media (max-width: 992px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .header-text {
+                text-align: center;
+            }
+
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 3rem;
+            }
+
+            .case-results-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 768px) {
             .header-container {
-                text-align: center;
                 padding: 0 1rem;
             }
 
-            .header-content h1 {
+            .header-text h1 {
                 font-size: 2.5rem;
             }
 
-            .case-grid,
             .services-grid {
                 grid-template-columns: 1fr;
             }
@@ -613,6 +678,15 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
+
+            .case-study-header,
+            .case-study-content {
+                padding: 2rem;
+            }
+
+            .case-results-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -620,37 +694,45 @@
     <header class="header">
         <div class="header-container">
             <div class="header-content">
-                <h1>Estrategias Digitales que Generan Resultados</h1>
-                <p class="tagline">SEO • SEM • Lead Generation • Marketing Digital</p>
-                <p>Agencia especializada en posicionamiento SEO y generación de leads para empresas en crecimiento. Trabajamos con clientes en toda Latinoamérica, desde startups hasta medios públicos de gran escala.</p>
+                <div class="header-text">
+                    <h1>Más Clientes en Tus Restaurantes con SEO + SEM</h1>
+                    <p class="tagline">Posicionamos tu cadena en Google Maps y campañas digitales que llenan mesas todos los días</p>
+                    <p>Especialistas en marketing digital para cadenas de restaurantes. Aumentamos la visibilidad de cada sede, generamos reservas directas y llenamos tus mesas con clientes que buscan "restaurantes cerca de mí".</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/573025441404?text=Quiero una consulta estratégica para mi cadena de restaurantes" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Solicita consulta estratégica
+                        </a>
+                        <a href="https://ranknroll.co/" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-rocket"></i>
+                            Conoce nuestra agencia
+                        </a>
+                    </div>
+                </div>
                 
-                <div class="cta-buttons">
-                    <a href="https://wa.me/573025441404?text=Hola, me interesa conocer más sobre sus servicios de marketing digital" class="btn btn-primary" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Conversemos por WhatsApp
-                    </a>
-                    <a href="https://ranknroll.co/" class="btn btn-secondary" target="_blank">
-                        <i class="fas fa-rocket"></i>
-                        Agencia SEO y SEM aquí
-                    </a>
+                <div class="header-media">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Espacio para imagen o video de caso de éxito</p>
+                    <small style="opacity: 0.7; font-size: 0.9rem;">src="ruta/video-restaurante.mp4"</small>
                 </div>
                 
                 <div class="header-stats">
                     <div class="stat-item">
-                        <span class="stat-number">+$1.5M</span>
-                        <span class="stat-label">USD generados en oportunidades</span>
+                        <span class="stat-number">+250%</span>
+                        <span class="stat-label">Aumento promedio en reservas</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">+$100K</span>
-                        <span class="stat-label">USD invertidos en pauta</span>
+                        <span class="stat-number">3-6</span>
+                        <span class="stat-label">Meses para dominar Google Maps</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">+9K</span>
-                        <span class="stat-label">Horas trabajadas</span>
+                        <span class="stat-number">ROI 4:1</span>
+                        <span class="stat-label">Retorno promedio en SEM</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">5</span>
-                        <span class="stat-label">Países LATAM</span>
+                        <span class="stat-number">85%</span>
+                        <span class="stat-label">Clientes que buscan "cerca de mí"</span>
                     </div>
                 </div>
             </div>
@@ -660,317 +742,155 @@
     <section class="section pain-section">
         <div class="container">
             <div class="pain-point-card">
-                <h2>¿Tu restaurante no aparece cuando buscan "cerca de mí"?</h2>
-                <p>Cada día pierdes clientes que buscan restaurantes en Google Maps y no te encuentran. Mientras tu competencia aparece primero, tú pierdes ventas.</p>
+                <h2>¿Tu cadena de restaurantes no aparece cuando buscan "cerca de mí"?</h2>
+                <p>Mientras tus competidores llenan mesas con clientes que los encuentran en Google Maps, tus sedes pierden cientos de comensales cada mes por no aparecer en las búsquedas locales.</p>
                 
                 <div class="pain-stats-grid">
                     <div class="pain-stat-item">
                         <strong>78%</strong>
-                        <span>de personas busca "cerca de mí"</span>
+                        <span>de personas busca "restaurante cerca de mí"</span>
                     </div>
                     <div class="pain-stat-item">
                         <strong>46%</strong>
                         <span>visita el restaurante el mismo día</span>
                     </div>
                     <div class="pain-stat-item">
-                        <strong>88%</strong>
-                        <span>confía más en reseñas online</span>
+                        <strong>3X más</strong>
+                        <span>reservas con buena presencia digital</span>
                     </div>
                     <div class="pain-stat-item">
                         <strong>72%</strong>
-                        <span>no va más allá de la página 1</span>
+                        <span>no va más allá de la página 1 de Google</span>
                     </div>
                 </div>
                 
                 <div class="pain-cta">
-                    <a href="https://wa.me/573025441404?text=Necesito que mi restaurante aparezca en Google Maps cuando buscan cerca de mí" class="btn btn-primary" target="_blank">
-                        <i class="fa-solid fa-lightbulb"></i>
-                        Solucionemos esto ahora
+                    <a href="https://wa.me/573025441404?text=Necesito que mis restaurantes aparezcan primero en Google Maps" class="btn btn-primary" target="_blank">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        Posiciona tu cadena en Google Maps
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Mid Section -->
+    <section class="cta-mid-section">
+        <div class="container">
+            <h3>¿Quieres replicar estos resultados en tu restaurante?</h3>
+            <p>Te mostramos exactamente cómo aumentar tus ventas con SEO Local y Google Ads</p>
+            <a href="https://wa.me/573025441404?text=Quiero conocer la estrategia completa para mi restaurante" class="btn btn-primary" target="_blank">
+                <i class="fas fa-chart-line"></i>
+                Ver estrategia completa
+            </a>
+        </div>
+    </section>
+
     <section id="servicios" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestros Servicios</h2>
-                <p class="subtitle">Marketing digital que genera resultados reales</p>
-                <p>Combinamos SEO técnico, estrategias SEM y gestión de activos digitales para generar leads cualificados y hacer crecer tu negocio de manera sostenible.</p>
+                <h2>Servicios Especializados para Cadenas de Restaurantes</h2>
+                <p class="subtitle">SEO Local + SEM que genera comensales reales</p>
+                <p>Estrategias digitales diseñadas específicamente para cadenas gastronómicas que quieren llenar mesas en todas sus sedes y competir efectivamente en el mercado local.</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-search"></i></div>
-                    <h3>SEO que Te Pone Primero</h3>
-                    <p>Te colocamos en la cima de Google, donde deberías estar. Estrategias SEO técnicas y de contenido que generan tráfico orgánico sostenible.</p>
+                    <div class="service-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>SEO Local Multi-Ubicación</h3>
+                    <p>Posicionamos cada sede de tu cadena para que aparezca primera cuando buscan restaurantes en su zona específica.</p>
                     <ul class="service-features">
-                        <li>Auditorías técnicas completas</li>
-                        <li>Optimización on-page y off-page</li>
-                        <li>Estrategias de contenido evergreen</li>
-                        <li>SEO Local para múltiples ubicaciones</li>
-                        <li>Recuperación de tráfico post-migración</li>
+                        <li>Optimización Google Business Profile por sede</li>
+                        <li>SEO Local específico por ciudad/zona</li>
+                        <li>Gestión de reseñas y reputación online</li>
+                        <li>Contenido localizado por ubicación</li>
+                        <li>Tracking de posicionamiento por sede</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                     <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                    <h3>Publicidad que Atrae Clientes</h3>
-                    <p>Tu marca en Google, optimizamos tu marketing digital para traer clientes que paguen. Campañas SEM que convierten.</p>
+                     <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>SEM para Restaurantes</h3>
+                    <p>Campañas publicitarias en Google Ads y redes sociales que traen comensales hambrientos directamente a tus mesas.</p>
                     <ul class="service-features">
-                        <li>Google Ads optimizadas por conversión</li>
-                        <li>Meta Ads y TikTok Ads estratégicas</li>
-                        <li>Segmentación avanzada por audiencia</li>
+                        <li>Google Ads para búsquedas gastronómicas</li>
+                        <li>Campañas por ubicación y horarios</li>
+                        <li>Publicidad en Google Maps</li>
+                        <li>Meta Ads para promociones especiales</li>
                         <li>Landing pages de alta conversión</li>
-                        <li>Optimización continua de ROI</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-handshake-angle"></i></div>
-                    <h3>Asesoría Sin Complicaciones</h3>
-                    <p>Precisión. Menos talk, más resultados. Trabajamos para tu éxito con metodologías probadas y enfoque 100% ROI.</p>
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Analytics y Reportes por Sede</h3>
+                    <p>Monitoreo detallado del rendimiento digital de cada restaurante con métricas claras de ROI y generación de clientes.</p>
                     <ul class="service-features">
-                        <li>Estrategias personalizadas por sector</li>
-                        <li>Capacitación de equipos internos</li>
-                        <li>Análisis competitivo profundo</li>
-                        <li>Implementación de herramientas</li>
-                        <li>Reportes transparentes y accionables</li>
+                        <li>Dashboard personalizado por cadena</li>
+                        <li>Tracking de reservas y pedidos por sede</li>
+                        <li>Análisis de competencia local</li>
+                        <li>Reportes mensuales de performance</li>
+                        <li>Recomendaciones de optimización</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="casos" class="section cases-section">
+    <section class="case-study-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Casos de Éxito</h2>
-                <p class="subtitle">Resultados reales con clientes de diferentes sectores</p>
-                <p>Proyectos activos que demuestran nuestra capacidad para generar resultados medibles en diversos mercados.</p>
-            </div>
-            
-            <div class="case-grid">
-                <div class="case-card">
-                    <div class="case-header">
-                        <div class="case-industry">Medios Públicos</div>
-                        <h3 class="case-title">📺 Canal Institucional RTVC</h3>
-                        <p class="case-subtitle">Sistema de Medios Públicos de Colombia</p>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-challenge">
-                            <strong>Reto:</strong> Pérdida significativa de tráfico tras migración mal ejecutada. Errores 404, redirecciones mal implementadas y optimización on-page nula.
-                        </div>
-                        <p><strong>Estrategia:</strong> Auditoría técnica completa + optimización masiva de contenido + capacitación editorial en SEO + contenidos evergreen + datos estructurados.</p>
-                        <div class="case-results">
-                            <div class="result-item">
-                                <span class="result-value">+50%</span>
-                                <span class="result-label">tráfico orgánico</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">1M+</span>
-                                <span class="result-label">visitas mensuales</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">2 años</span>
-                                <span class="result-label">crecimiento sostenido</span>
-                            </div>
-                        </div>
-                        <div class="case-tags">
-                            <span class="case-tag">SEO Técnico</span>
-                            <span class="case-tag">Migración Recovery</span>
-                            <span class="case-tag">Content Strategy</span>
-                            <span class="case-tag">Training</span>
-                        </div>
-                        <div class="case-status status-completed">
-                             Proyecto completado - Resultados sostenibles
-                        </div>
-                    </div>
+            <div class="case-study-container">
+                <div class="case-study-header">
+                    <h2>🚀 Cómo este café en Cartagena aumentó sus ventas en un 34% con SEO Local y Google Ads</h2>
+                    <p class="subtitle">Caso de éxito: Nía Bakery, Coffee & Cocktails</p>
                 </div>
+                <div class="case-study-content">
+                    <div class="case-story">
+                        <p>En octubre de 2024, fui a <strong>Nía Bakery, Coffee & Cocktails</strong> en Cartagena a disfrutar un café y un croissant de chocolate cuando me encontré con un viejo amigo: Pierre Layolle.</p>
+                        
+                        <p>Pierre, con toda su experiencia en la industria gastronómica, me contó que había fundado Nía en enero y que su reto principal era atraer más clientes extranjeros.</p>
+                        
+                        <p>💡 Mi hermano <strong>Juan Pablo Albornoz</strong> y yo le propusimos a Pierre una estrategia combinando SEO Local y Google Ads para captar a esos clientes con alta intención de compra.</p>
+                    </div>
 
-                <div class="case-card">
-                    <div class="case-header">
-                        <div class="case-industry">EdTech Internacional</div>
-                        <h3 class="case-title">🎓 CognosOnline</h3>
-                        <p class="case-subtitle">Diseño e implementación de ecosistemas de aprendizaje</p>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-challenge">
-                            <strong>Reto:</strong> Dependencia excesiva en Ads con presupuestos limitados. Baja visibilidad orgánica y falta de metodología para leads B2B cualificados.
+                    <div class="case-results-grid">
+                        <div class="case-result-item">
+                            <span class="case-result-value">34%</span>
+                            <span class="case-result-label">De los ingresos en diciembre provinieron de Google</span>
                         </div>
-                        <p><strong>Estrategia:</strong> SEO técnico internacional + análisis competitivo EdTech + contenidos especializados + link baiting + inbound marketing methodology.</p>
-                        <div class="case-results">
-                            <div class="result-item">
-                                <span class="result-value">309%</span>
-                                <span class="result-label">oportunidades</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">$1.6M</span>
-                                <span class="result-label">USD anuales</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">5</span>
-                                <span class="result-label">países LATAM</span>
-                            </div>
+                        <div class="case-result-item">
+                            <span class="case-result-value">ROAS 10.44</span>
+                            <span class="case-result-label">Por cada $1 COP invertido = $10.44 en ventas</span>
                         </div>
-                        <div class="case-tags">
-                            <span class="case-tag">SEO Internacional</span>
-                            <span class="case-tag">Lead Generation</span>
-                            <span class="case-tag">B2B Marketing</span>
-                            <span class="case-tag">EdTech</span>
+                        <div class="case-result-item">
+                            <span class="case-result-value">$26M</span>
+                            <span class="case-result-label">COP generados en diciembre por Google</span>
                         </div>
-                        <div class="case-status status-active">
-                            Cliente activo - Crecimiento exponencial
+                        <div class="case-result-item">
+                            <span class="case-result-value">+300</span>
+                            <span class="case-result-label">Transacciones con ticket promedio $82,300</span>
                         </div>
                     </div>
-                </div>
-                
-                <div class="case-card">
-                    <div class="case-header">
-                        <div class="case-industry">Turismo & Gastronomía</div>
-                        <h3 class="case-title">🥐 Nia Bakery Cartagena</h3>
-                        <p class="case-subtitle">Coffee shop enfocado en turistas extranjeros</p>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-challenge">
-                            <strong>Reto:</strong> Atraer turistas extranjeros que buscan "coffee shop" en Cartagena con presupuesto de marketing limitado.
-                        </div>
-                        <p><strong>Estrategia:</strong> Campañas Google Ads segmentadas + optimización Google Business Profile + SEO Local especializado en turismo.</p>
-                        <div class="case-results">
-                            <div class="result-item">
-                                <span class="result-value">590</span>
-                                <span class="result-label">búsquedas/mes captadas</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">4.8★</span>
-                                <span class="result-label">rating promedio</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">+250%</span>
-                                <span class="result-label">visibilidad local</span>
-                            </div>
-                        </div>
-                        <div class="case-tags">
-                            <span class="case-tag">Google Ads</span>
-                            <span class="case-tag">SEO Local</span>
-                            <span class="case-tag">Google Business</span>
-                            <span class="case-tag">Turismo</span>
-                        </div>
-                        <div class="case-status status-active">
-                            Cliente activo - Proyecto en ejecución
-                        </div>
-                    </div>
-                </div>
 
-                <div class="case-card">
-                    <div class="case-header">
-                        <div class="case-industry">Cloud & Technology</div>
-                        <h3 class="case-title">☁️ Amber Perú</h3>
-                        <p class="case-subtitle">Migración a la nube con AWS e IA</p>
+                    <div class="case-strategy">
+                        <h4>🔍 ¿Cómo lo logramos?</h4>
+                        <ul>
+                            <li>Optimización de Google Business Profile para aparecer en búsquedas relevantes</li>
+                            <li>Optimización de HTML semántico de su web</li>
+                            <li>Anuncios dirigidos a turistas buscando cafeterías en Cartagena</li>
+                            <li>Seguimiento de datos en punto de venta para medir qué canales traían más clientes</li>
+                        </ul>
                     </div>
-                    <div class="case-content">
-                        <div class="case-challenge">
-                            <strong>Reto:</strong> Generar leads para servicios especializados de migración AWS, arquitecturas serverless e IA generativa.
-                        </div>
-                        <p><strong>Estrategia:</strong> SEO técnico especializado en cloud computing + SEM para términos enterprise + content marketing sobre transformación digital.</p>
-                        <div class="case-results">
-                            <div class="result-item">
-                                <span class="result-value">B2B</span>
-                                <span class="result-label">leads enterprise</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">AWS</span>
-                                <span class="result-label">especialización</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">IA</span>
-                                <span class="result-label">generativa</span>
-                            </div>
-                        </div>
-                        <div class="case-tags">
-                            <span class="case-tag">SEO Técnico</span>
-                            <span class="case-tag">SEM Enterprise</span>
-                            <span class="case-tag">Cloud Computing</span>
-                            <span class="case-tag">Lead Generation</span>
-                        </div>
-                        <div class="case-status status-active">
-                            Cliente activo - Generación de leads
-                        </div>
-                    </div>
-                </div>
 
-                <div class="case-card">
-                    <div class="case-header">
-                        <div class="case-industry">Hospitalidad Premium</div>
-                        <h3 class="case-title">🏨 Hoteles Mucho Sur</h3>
-                        <p class="case-subtitle">Cadena hotelera consciente multi-destino</p>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-challenge">
-                            <strong>Reto:</strong> Hoteles conscientes necesitaban visibilidad digital unificada para Santa Marta, Filandia y Quimbaya con estrategia SEO/SEM integral.
-                        </div>
-                        <p><strong>Estrategia:</strong> Actualmente en fase de creación de activos digitales para implementar SEO Local + SEM + optimización Google Business Profile multi-ubicación.</p>
-                        <div class="case-results">
-                            <div class="result-item">
-                                <span class="result-value">3</span>
-                                <span class="result-label">destinos</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">Multi</span>
-                                <span class="result-label">ubicación</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">SEO</span>
-                                <span class="result-label">+ SEM</span>
-                            </div>
-                        </div>
-                        <div class="case-tags">
-                            <span class="case-tag">SEO Local</span>
-                            <span class="case-tag">SEM</span>
-                            <span class="case-tag">Multi-ubicación</span>
-                            <span class="case-tag">Hospitalidad</span>
-                        </div>
-                        <div class="case-status status-development">
-                            En desarrollo - Creación de activos
-                        </div>
-                    </div>
-                </div>
+                    <p style="font-size: 1.1rem; color: var(--text-dark); margin-top: 1.5rem;">
+                        📈 Pierre, que mide todo, me confirmó que <strong>Google se convirtió en el canal de mayor crecimiento desde octubre</strong>.
+                    </p>
 
-                <div class="case-card">
-                    <div class="case-header">
-                        <div class="case-industry">Gastronomía Multi-marca</div>
-                        <h3 class="case-title">🍽️ Restaurantes La Serrezuela</h3>
-                        <p class="case-subtitle">3 marcas gastronómicas unificadas</p>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-challenge">
-                            <strong>Reto:</strong> Investigación SEO/SEM personalizada para Sabine Bistró, Tentadero y Café Malva en centro comercial La Serrezuela.
-                        </div>
-                        <p><strong>Estrategia:</strong> Actualmente en fase de investigación y análisis competitivo para desarrollar estrategia SEO/SEM personalizada por marca gastronómica.</p>
-                        <div class="case-results">
-                            <div class="result-item">
-                                <span class="result-value">3</span>
-                                <span class="result-label">marcas</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">1</span>
-                                <span class="result-label">ubicación</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-value">SEO</span>
-                                <span class="result-label">+ SEM</span>
-                            </div>
-                        </div>
-                        <div class="case-tags">
-                            <span class="case-tag">Investigación SEO</span>
-                            <span class="case-tag">SEM Strategy</span>
-                            <span class="case-tag">Multi-marca</span>
-                            <span class="case-tag">Gastronomía</span>
-                        </div>
-                        <div class="case-status status-development">
-                            En investigación - Análisis competitivo
-                        </div>
+                    <div style="text-align: center; margin-top: 2.5rem;">
+                        <a href="https://wa.me/573025441404?text=Quiero aplicar esta estrategia en mi restaurante" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-rocket"></i>
+                            Aplica esta estrategia en tu restaurante
+                        </a>
                     </div>
                 </div>
             </div>
@@ -980,8 +900,8 @@
     <section id="contacto" class="section contact-section">
         <div class="container contact-container">
             <div class="contact-info">
-                <h2>¿Listo para hacer crecer tu negocio?</h2>
-                <p>Contactanos para una consulta personalizada y descubre cómo podemos ayudarte a alcanzar tus objetivos digitales.</p>
+                <h2>¿Listo para llenar las mesas de tu cadena?</h2>
+                <p>Contactanos para una consulta personalizada y descubre cómo podemos ayudarte a replicar estos resultados en cada sede de tu cadena de restaurantes.</p>
                 
                 <div class="contact-item">
                     <i class="fas fa-user"></i>
@@ -998,7 +918,7 @@
                 
                 <div class="contact-item">
                     <i class="fas fa-globe"></i>
-                    <div>ranknroll.com</div>
+                    <div>ranknroll.co</div>
                 </div>
                 
                 <div class="contact-item">
@@ -1008,22 +928,26 @@
             </div>
             
             <div class="cta-section">
-                <h3>Solicita una Consulta</h3>
-                <p>¿Quieres que tu negocio aparezca primero en Google? Conversemos sobre tu estrategia digital.</p>
-                <a href="https://wa.me/573025441404?text=Hola, quiero una consulta sobre marketing digital para mi empresa" class="btn btn-primary" target="_blank">
+                <h3>Solicita una Consulta Estratégica</h3>
+                <p>¿Quieres que tu cadena de restaurantes domine Google Maps y genere reservas constantemente? Conversemos sobre tu estrategia digital.</p>
+                <a href="https://wa.me/573025441404?text=Hola, quiero una consulta sobre marketing digital para mi cadena de restaurantes" class="btn btn-primary" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                     Conversemos por WhatsApp
                 </a>
+                
+                <div class="formulario-leads">
+                    [shortcode-form]
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Rank & Roll. Estrategias Digitales que Generan Resultados.</p>
+            <p>&copy; 2025 Rank & Roll. SEO y SEM para Cadenas de Restaurantes.</p>
             <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
                 <a href="https://ranknroll.co/" target="_blank" style="color: var(--primary-green); text-decoration: none;">
-                    🚀 Agencia SEO y SEM aquí - ranknroll.co
+                    🚀 Agencia SEO y SEM especializada - ranknroll.co
                 </a>
             </p>
         </div>
