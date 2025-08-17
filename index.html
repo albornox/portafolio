@@ -1037,7 +1037,7 @@
                         <p>Déjanos tus datos de contacto y nos comunicaremos contigo en las próximas horas</p>
                     </div>
                     
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="lead-form" id="leadForm">
+                    <form class="lead-form" id="leadForm">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="primer_nombre">Nombre <span class="required">*</span></label>
@@ -1069,18 +1069,22 @@
                             <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu cadena de restaurantes y qué objetivos tienes con marketing digital..."></textarea>
                         </div>
                         
-                        <!-- Campos ocultos para tracking -->
-                        <input type="hidden" name="_subject" value="Nueva consulta desde Landing Page - Cadenas de Restaurantes">
-                        <input type="hidden" name="_next" value="https://ranknroll.co/gracias">
-                        <input type="hidden" name="_cc" value="thunderdigitalservices@gmail.com">
-                        
                         <div class="form-submit">
-                            <button type="submit" class="btn-submit">
+                            <button type="submit" class="btn-submit" id="submitBtn">
                                 <i class="fas fa-paper-plane"></i>
-                                Enviar
+                                <span id="btnText">Enviar</span>
                             </button>
                         </div>
                     </form>
+                    
+                    <div id="successMessage" style="display: none; text-align: center; padding: 2rem; background: #d4edda; color: #155724; border-radius: 8px; margin-top: 1rem;">
+                        <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+                        <h4>¡Mensaje enviado exitosamente!</h4>
+                        <p>Nos comunicaremos contigo en las próximas horas.</p>
+                        <a href="https://ranknroll.co/" class="btn btn-primary" style="margin-top: 1rem;">
+                            Ir a nuestro sitio web
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1096,6 +1100,64 @@
             </p>
         </div>
     </footer>
+
+    <!-- EmailJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script>
+        // Configuración EmailJS
+        (function() {
+            emailjs.init("cPLuPXvwylxxsT42v");
+        })();
+
+        // Manejar envío del formulario
+        document.getElementById('leadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const originalText = btnText.textContent;
+            
+            // Cambiar estado del botón
+            submitBtn.disabled = true;
+            btnText.textContent = 'Enviando...';
+            
+            // Recopilar datos del formulario
+            const templateParams = {
+                primer_nombre: document.getElementById('primer_nombre').value,
+                apellido: document.getElementById('apellido').value,
+                empresa: document.getElementById('empresa').value,
+                email: document.getElementById('email').value,
+                sitio_web: document.getElementById('sitio_web').value,
+                mensaje: document.getElementById('mensaje').value,
+                fecha: new Date().toLocaleString('es-CO'),
+                to_email: 'thunderdigitalservices@gmail.com'
+            };
+            
+            // Enviar email
+            emailjs.send('service_xv5vrnh', 'template_clvbtvm', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Mostrar mensaje de éxito
+                    document.getElementById('leadForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Opcional: redireccionar después de 5 segundos
+                    setTimeout(() => {
+                        window.location.href = 'https://ranknroll.co/';
+                    }, 5000);
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Error al enviar el mensaje. Por favor intenta de nuevo o contáctanos por WhatsApp.');
+                    
+                    // Restaurar botón
+                    submitBtn.disabled = false;
+                    btnText.textContent = originalText;
+                });
+        });
+    </script>
 
 </body>
 </html>
