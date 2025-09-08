@@ -134,6 +134,13 @@
             border-radius: 16px;
             overflow: hidden;
             background: rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
         .video-container iframe {
@@ -225,6 +232,65 @@
             font-size: 0.85rem;
             opacity: 0.9;
             font-weight: 500;
+        }
+
+        /* Video Fullscreen Overlay */
+        .video-fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .video-fullscreen-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            max-width: 90vw;
+            max-height: 80vh;
+        }
+
+        .video-fullscreen-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .close-fullscreen {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            z-index: 10000;
+            transition: all 0.3s ease;
+        }
+
+        .close-fullscreen:hover {
+            background: white;
+            transform: scale(1.1);
         }
         
         /* Pain Point Section */
@@ -765,40 +831,6 @@
             * {
                 max-width: 100% !important;
                 overflow-x: hidden !important;
-                /* Video fullscreen para móvil */
-    .header-media.fullscreen {
-        width: 100vw !important;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw !important;
-        margin-right: -50vw !important;
-        padding: 0 !important;
-        background: none !important;
-        border: none !important;
-        backdrop-filter: none !important;
-    }
-    header-media.fullscreen .video-container {
-        border-radius: 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-        padding-bottom: 56.25%;
-    }
-
-    .header-media.fullscreen .video-container iframe {
-        border-radius: 0 !important;
-    }
-
-    .header-media.fullscreen .video-container {
-        border-radius: 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-        padding-bottom: 56.25%; /* Mantiene aspect ratio 16:9 */
-    }
-
-    .header-media.fullscreen .video-container iframe {
-        border-radius: 0 !important;
-    }
             }
             
             body {
@@ -835,6 +867,45 @@
                 font-size: 2.2rem !important;
                 line-height: 1.1 !important;
                 word-wrap: break-word !important;
+            }
+
+            /* Video móvil centrado y con ancho completo */
+            .header-media {
+                width: 100vw !important;
+                position: relative;
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw !important;
+                margin-right: -50vw !important;
+                padding: 0 !important;
+                background: none !important;
+                border: none !important;
+                backdrop-filter: none !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                min-height: auto !important;
+            }
+
+            .header-media .video-container {
+                border-radius: 8px !important;
+                margin: 1rem auto !important;
+                width: 95% !important;
+                max-width: 400px !important;
+                padding-bottom: 56.25%;
+                transition: all 0.3s ease !important;
+                cursor: pointer !important;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+                background: #000;
+            }
+
+            .header-media .video-container:hover {
+                transform: scale(1.02) !important;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.4) !important;
+            }
+
+            .header-media .video-container iframe {
+                border-radius: 8px !important;
             }
 
             .contact-section {
@@ -993,6 +1064,24 @@
             .formulario-leads {
                 padding: 1.5rem;
             }
+
+            /* Fullscreen video overlay responsive */
+            .video-fullscreen-overlay {
+                padding: 10px !important;
+            }
+
+            .video-fullscreen-container {
+                max-width: 95vw !important;
+                max-height: 70vh !important;
+            }
+
+            .close-fullscreen {
+                top: 10px !important;
+                right: 10px !important;
+                width: 35px !important;
+                height: 35px !important;
+                font-size: 20px !important;
+            }
         }
     </style>
 </head>
@@ -1017,9 +1106,9 @@
                     </div>
                 </div>
                 
-                <div class="header-media fullscreen">
-                    <div class="video-container">
-                        <iframe 
+                <div class="header-media">
+                    <div class="video-container" onclick="expandVideo()">
+                        <iframe id="mainVideo"
                             src="https://www.youtube.com/embed/QyuVNtbLdnc?rel=0&modestbranding=1&showinfo=0&controls=1&iv_load_policy=3&disablekb=1"
                             title="Video testimonial restaurante"
                             frameborder="0" 
@@ -1050,6 +1139,20 @@
             </div>
         </div>
     </header>
+
+    <!-- Overlay para pantalla completa -->
+    <div id="videoOverlay" class="video-fullscreen-overlay" onclick="closeVideo()">
+        <button class="close-fullscreen" onclick="closeVideo()">&times;</button>
+        <div class="video-fullscreen-container">
+            <iframe id="fullscreenVideo"
+                src=""
+                title="Video testimonial restaurante"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
 
     <section class="section pain-section">
         <div class="container">
@@ -1325,6 +1428,48 @@
         (function() {
             emailjs.init("cPLuPXvwylxxsT42v");
         })();
+
+        // Funciones para el video expandible
+        function expandVideo() {
+            const overlay = document.getElementById('videoOverlay');
+            const fullscreenVideo = document.getElementById('fullscreenVideo');
+            const mainVideo = document.getElementById('mainVideo');
+            
+            // Copia la URL del video principal al video de pantalla completa
+            fullscreenVideo.src = mainVideo.src;
+            
+            // Muestra el overlay
+            overlay.style.display = 'flex';
+            
+            // Previene el scroll del body
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideo() {
+            const overlay = document.getElementById('videoOverlay');
+            const fullscreenVideo = document.getElementById('fullscreenVideo');
+            
+            // Oculta el overlay
+            overlay.style.display = 'none';
+            
+            // Detiene el video removiendo la fuente
+            fullscreenVideo.src = '';
+            
+            // Restaura el scroll del body
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideo();
+            }
+        });
+
+        // Prevenir que el clic en el contenedor del video cierre el overlay
+        document.querySelector('.video-fullscreen-container').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
 
         // Manejar envío del formulario
         document.getElementById('leadForm').addEventListener('submit', function(event) {
